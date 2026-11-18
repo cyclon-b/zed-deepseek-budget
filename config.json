@@ -1,0 +1,6 @@
+{
+  "listen": { "host": "127.0.0.1", "port": 8787 },
+  "upstream": "https://api.deepseek.com",
+  "dailyLimitCny": 15,
+  "usdToCny": 7.2
+}

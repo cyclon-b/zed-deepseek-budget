@@ -1,0 +1,9 @@
+node_modules/
+data/
+.env
+*.log
+*.tmp
+start-hidden.vbs
+.DS_Store
+docker-compose.override.yml
+certs/

@@ -1,0 +1,13 @@
+.git
+.github
+node_modules
+test
+scripts
+data
+*.log
+.env
+README.md
+README.ru.md
+LICENSE
+examples
+certs

@@ -1,0 +1,4 @@
+' Windows helper for running the proxy without Docker.
+' Replace the placeholders and put this file into the user's Startup folder.
+Set shell = CreateObject("WScript.Shell")
+shell.Run """<NODE_PATH>"" ""<SERVER_PATH>""", 0, False

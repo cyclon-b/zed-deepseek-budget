@@ -1,0 +1,27 @@
+services:
+  zed-deepseek-budget:
+    build: .
+    image: zed-deepseek-budget:local
+    container_name: zed-deepseek-budget
+    ports:
+      - "127.0.0.1:${PROXY_PORT:-8787}:8787"
+    environment:
+      # For TLS inspection: mount the root CA and uncomment:
+      # NODE_EXTRA_CA_CERTS: /certs/root-ca.pem
+      DAILY_LIMIT_CNY: "${DAILY_LIMIT_CNY:-15}"
+      USD_TO_CNY: "${USD_TO_CNY:-7.2}"
+      RESET_TIME_ZONE: "${RESET_TIME_ZONE:-}"
+      STATE_FILE: /data/daily-budget.json
+      LOG_FILE: /data/zed-agent-budget.log
+    volumes:
+      # - "./certs:/certs:ro"
+      - budget-data:/data
+      # To share the counter with the dsh plugin on the host, replace the
+      # named volume above with a bind mount, for example:
+      # - "C:/Users/<you>/.dsh/limits:/data"
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  budget-data:
